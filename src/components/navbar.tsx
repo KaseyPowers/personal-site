@@ -5,35 +5,19 @@ import { usePathname } from "next/navigation";
 import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import DarkmodeToggle from "../darkmode/darkmode_selector";
+import DarkmodeToggle from "./darkmode_selector";
 import clsx from "clsx";
 import Link from "next/link";
 
-export default function Navbar({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="flex flex-col items-center max-h-full">
-      <nav className="flex-1 w-full text-xl font-bold">
-        <div className="flex justify-between p-4 max-w-screen-xl mx-auto">
-          <div>Logo</div>
-          <div className="flex flex-row space-x-8">
-            <span>Links</span>
-            <DarkmodeToggle />
-          </div>
-        </div>
-      </nav>
-      <main className="flex-auto overflow-auto">{children}</main>
-    </div>
-  );
-}
-
 const navigation = [
-  { name: "Dashboard", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "Dashboard", href: "/dashboard" },
   { name: "Team", href: "#" },
   { name: "Projects", href: "#" },
   { name: "Calendar", href: "#" },
 ];
 
-export const Navbar2 = () => {
+export default function Navbar() {
   const pathname = usePathname();
   /** NOTE: Will likely need to update to handle deeper links if that happens   */
   const useLinks = useMemo(() => {
@@ -49,7 +33,7 @@ export const Navbar2 = () => {
       <div className="mx-auto max-w-screen-xl py-4 px-2 sm:px-6 flex justify-between items-center space-x-4">
         <div className="flex flex-shrink-0 items-center">TODO: LOGO</div>
         <div className="hidden sm:mx-4 sm:block">
-          <div className="flex space-x-4 rounded-full shadow-lg">
+          <div className="flex space-x-4 rounded-full shadow-lg dark:shadow-none dark:border-gray-700 dark:border">
             {useLinks.map((item) => (
               <Link
                 key={item.name}
@@ -131,4 +115,4 @@ export const Navbar2 = () => {
       </Disclosure.Panel> */}
     </nav>
   );
-};
+}
