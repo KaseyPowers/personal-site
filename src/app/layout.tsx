@@ -7,6 +7,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Providers from "./root_providers";
 
+import baseStyles from "@/components/base.styles";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased h-dvh bg-white dark:bg-gray-900 dark:text-white`}
+        className={`${inter.className} antialiased h-dvh ${baseStyles.background.main}`}
       >
         <Providers>
           <Navbar />

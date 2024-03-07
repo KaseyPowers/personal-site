@@ -5,9 +5,11 @@ import { usePathname } from "next/navigation";
 import { Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import DarkmodeToggle from "./darkmode_selector";
 import clsx from "clsx";
 import Link from "next/link";
+
+import DarkmodeToggle from "./darkmode_selector";
+import theme_classes from "./base.styles";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -28,21 +30,22 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <nav className="sticky top-0 bg-white border-gray-200 dark:bg-gray-900">
+    <nav className="sticky top-0 bg-inherit">
       {/* Example had two divs, one for width+padding, child for relative + flex, Noting if we need to add back */}
       <div className="mx-auto max-w-screen-xl py-4 px-2 sm:px-6 flex justify-between items-center space-x-4">
         <div className="flex flex-shrink-0 items-center">TODO: LOGO</div>
         <div className="hidden sm:mx-4 sm:block">
-          <div className="flex space-x-4 rounded-full shadow-lg dark:shadow-none dark:border-gray-700 dark:border">
+          <div className={theme_classes.buttonGroup.container}>
             {useLinks.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={clsx(
-                  item.current
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                  "rounded-md px-3 py-2 text-sm font-medium"
+                  theme_classes.buttonGroup.children,
+                  theme_classes.button.base,
+                  item.current && theme_classes.buttonGroup.activeChild,
+                  item.current && theme_classes.button.defaultActive,
+                  !item.current && theme_classes.button.default,
                 )}
                 aria-current={item.current ? "page" : undefined}
               >
@@ -52,10 +55,17 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex flex-row space-x-4">
+        <div className="flex flex-row space-x-4 pr-2">
           {/* Mobile menu button*/}
           <Menu as="div" className="relative inline-block sm:hidden">
-            <Menu.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+            <Menu.Button
+              className={clsx(
+                theme_classes.button.base,
+                theme_classes.button.not_group,
+                theme_classes.button.default,
+                "inline-flex items-center justify-center",
+              )}
+            >
               Menu
               <XMarkIcon
                 className="block ml-2 ui-not-open:hidden h-6 w-6"
@@ -75,13 +85,25 @@ export default function Navbar() {
               leaveFrom="transform scale-100 opacity-100"
               leaveTo="transform scale-95 opacity-0"
             >
-              <Menu.Items className="absolute right-0 mt-2 divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+              <Menu.Items
+                className={clsx(
+                  "absolute right-0 mt-2",
+                  theme_classes.menu.container,
+                )}
+              >
                 {useLinks.map((item) => (
                   <Menu.Item
                     key={item.name}
                     as={Link}
                     href={item.href}
-                    className="block px-3 py-2 ui-active:bg-gray-900 ui-active:text-white ui-not-active:text-gray-300 ui-not-active:hover:bg-gray-700 ui-not-active:hover:text-white"
+                    className={clsx(
+                      "block",
+                      theme_classes.menu.children,
+                      theme_classes.button.base,
+                      item.current
+                        ? theme_classes.button.defaultActive
+                        : theme_classes.button.default,
+                    )}
                   >
                     {item.name}
                   </Menu.Item>
@@ -89,30 +111,9 @@ export default function Navbar() {
               </Menu.Items>
             </Transition>
           </Menu>
-          <DarkmodeToggle className="pr-2" />
+          <DarkmodeToggle />
         </div>
       </div>
-
-      {/* <Disclosure.Panel className="sm:hidden">
-        <div className="space-y-1 px-2 pb-3 pt-2">
-          {useLinks.map((item) => (
-            <Disclosure.Button
-              key={item.name}
-              as={Link}
-              href={item.href}
-              className={clsx(
-                item.current
-                  ? "bg-gray-900 text-white"
-                  : "text-gray-300 hover:bg-gray-700 hover:text-white",
-                "block rounded-md px-3 py-2 text-base font-medium"
-              )}
-              aria-current={item.current ? "page" : undefined}
-            >
-              {item.name}
-            </Disclosure.Button>
-          ))}
-        </div>
-      </Disclosure.Panel> */}
     </nav>
   );
 }
