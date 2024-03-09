@@ -8,6 +8,7 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Link from "next/link";
 
+import Logo from "./logo";
 import DarkmodeToggle from "./darkmode_selector";
 import theme_classes from "./base.styles";
 
@@ -32,8 +33,10 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 bg-inherit">
       {/* Example had two divs, one for width+padding, child for relative + flex, Noting if we need to add back */}
-      <div className="mx-auto max-w-screen-xl py-4 px-2 sm:px-6 flex justify-between items-center space-x-4">
-        <div className="flex flex-shrink-0 items-center">TODO: LOGO</div>
+      <div className="mx-auto flex max-w-screen-xl items-center justify-between space-x-4 px-2 py-4 sm:px-6">
+        <div className="flex flex-shrink-0 items-center">
+          <Logo />
+        </div>
         <div className="hidden sm:mx-4 sm:block">
           <div className={theme_classes.buttonGroup.container}>
             {useLinks.map((item) => (
@@ -68,11 +71,11 @@ export default function Navbar() {
             >
               Menu
               <XMarkIcon
-                className="block ml-2 ui-not-open:hidden h-6 w-6"
+                className="ml-2 block h-6 w-6 ui-not-open:hidden"
                 aria-hidden="true"
               />
               <Bars3Icon
-                className="blcok ml-2 ui-open:hidden  h-6 w-6"
+                className="blcok ml-2 h-6  w-6 ui-open:hidden"
                 aria-hidden="true"
               />
             </Menu.Button>

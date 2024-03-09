@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -24,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased h-dvh ${baseStyles.background.main}`}
+        className={`${inter.className} h-dvh antialiased ${baseStyles.background.main}`}
       >
         <Providers>
           <Navbar />

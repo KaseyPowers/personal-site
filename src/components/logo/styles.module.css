@@ -1,0 +1,46 @@
+svg.logo {
+  height: 100px;
+  padding: 5px;
+  border: 3px solid black;
+  border-radius: 0.5rem;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.75s;
+}
+svg.logo path {
+  fill-rule: evenodd;
+  fill: black;
+  stroke: #000;
+  stroke-width: 0.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.75s;
+}
+svg.logo path.pLetter {
+  transform-origin: 53% 70%;
+}
+svg.logo path.kTop {
+  transform-origin: 17% 19%;
+}
+svg.logo path.kBottom {
+  transform-origin: 17% 41%;
+}
+
+.logo:hover {
+  border-radius: 100%;
+}
+svg.logo:hover path.pLetter {
+  /* transform: matrix(0, 1, -1, 0, -5%, 2.5%); */
+  transform: rotate(90deg) translate(-5%, 2.5%);
+}
+svg.logo:hover path.kTop {
+  /* transform: matrix(0, 1, -1, 0, 0, -50%); */
+  transform: rotate(90deg) translate(0, -50%);
+}
+svg.logo:hover path.kBottom {
+  /* transform: matrix(0, 1, -1, 0, -27%, -5%); */
+  transform: rotate(90deg) translate(-27%, -5%);
+}
