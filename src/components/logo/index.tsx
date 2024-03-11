@@ -1,7 +1,10 @@
 import styles from "./styles.module.css";
 export default function Logo() {
   return (
-    <svg viewBox="0 0 83 100" className={styles.logo}>
+    <svg
+      viewBox="0 0 83 100"
+      className={`${styles.logo} border-4 border-current fill-current stroke-current`}
+    >
       <path
         className={styles.kTop}
         d="M10 5 V33 H29 L50 5 h-9 L25 27 H18 L18 5 Z"

@@ -27,7 +27,7 @@ export default function RootLayout({
       >
         <Providers>
           <Navbar />
-          <div className="h-dvh">{children}</div>
+          <main className="h-dvh">{children}</main>
         </Providers>
       </body>
     </html>

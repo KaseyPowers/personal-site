@@ -33,9 +33,12 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 bg-inherit">
       {/* Example had two divs, one for width+padding, child for relative + flex, Noting if we need to add back */}
-      <div className="mx-auto flex max-w-screen-xl items-center justify-between space-x-4 px-2 py-4 sm:px-6">
+      <div className="mx-auto flex max-w-screen-xl items-center justify-between space-x-2 px-2 py-4 sm:px-6 md:space-x-4">
         <div className="flex flex-shrink-0 items-center">
           <Logo />
+          <h1 className="ml-2 hidden w-min text-2xl font-extrabold leading-none sm:text-4xl md:inline-block">
+            Kasey Powers
+          </h1>
         </div>
         <div className="hidden sm:mx-4 sm:block">
           <div className={theme_classes.buttonGroup.container}>
@@ -58,7 +61,7 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="flex flex-row space-x-4 pr-2">
+        <div className="flex flex-row space-x-4 pr-2 sm:space-x-0">
           {/* Mobile menu button*/}
           <Menu as="div" className="relative inline-block sm:hidden">
             <Menu.Button
