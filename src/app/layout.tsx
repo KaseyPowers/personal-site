@@ -7,6 +7,7 @@ import Navbar from "@/components/navbar";
 import Providers from "./root_providers";
 
 import baseStyles from "@/components/base.styles";
+import clsx from "clsx";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,11 +24,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} h-dvh antialiased ${baseStyles.background.main}`}
+        className={clsx(
+          inter.className,
+          "h-dvh antialiased",
+          baseStyles.background.main,
+          baseStyles.typography.base,
+        )}
       >
         <Providers>
           <Navbar />
-          <main className="h-dvh">{children}</main>
+          <main className="container mx-auto h-dvh px-4">{children}</main>
         </Providers>
       </body>
     </html>

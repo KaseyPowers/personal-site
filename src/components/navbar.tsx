@@ -12,33 +12,75 @@ import Logo from "./logo";
 import DarkmodeToggle from "./darkmode_selector";
 import theme_classes from "./base.styles";
 
-const navigation = [
-  { name: "Home", href: "/" },
+import Typography from "./typography";
+
+interface NavItemDef {
+  name: string;
+  href: string;
+  exact?: boolean;
+}
+
+const navigation: NavItemDef[] = [
+  { name: "Home", href: "/", exact: true },
   { name: "Dashboard", href: "/dashboard" },
-  { name: "Team", href: "#" },
-  { name: "Projects", href: "#" },
+  { name: "Projects", href: "/projects" },
   { name: "Calendar", href: "#" },
+] as const;
+
+function isItemActive(item: NavItemDef, pathname: string): boolean {
+  if (item.exact) {
+    // for exact, just do an equality check
+    return item.href === pathname;
+  }
+  // for non-exact, use startswith. NOTE: need to verify this behavior
+  return pathname.startsWith(item.href);
+}
+/**
+ * something to track if page has name and info on page.
+ * Probably the home page and/or "About Me"
+ */
+const hideTitleOnItems: NavItemDef[] = [
+  // get home item
+  navigation[0],
+  // make an exact dashboard as if child pages wouldn't have their own title
+  // {
+  //   ...navigation[1],
+  //   exact: true,
+  // },
 ];
 
 export default function Navbar() {
   const pathname = usePathname();
-  /** NOTE: Will likely need to update to handle deeper links if that happens   */
+
   const useLinks = useMemo(() => {
     return navigation.map((item) => ({
       ...item,
-      current: item.href === pathname,
+      current: isItemActive(item, pathname),
     }));
   }, [pathname]);
 
+  const showTitle = useMemo(() => {
+    return !hideTitleOnItems.some((item) => isItemActive(item, pathname));
+  }, [pathname]);
+
   return (
-    <nav className="sticky top-0 bg-inherit">
+    <nav className="sticky top-0">
       {/* Example had two divs, one for width+padding, child for relative + flex, Noting if we need to add back */}
-      <div className="mx-auto flex max-w-screen-xl items-center justify-between space-x-2 px-2 py-4 sm:px-6 md:space-x-4">
-        <div className="flex flex-shrink-0 items-center">
+      <div
+        className={clsx(
+          theme_classes.background.main,
+          "mx-auto flex max-w-screen-xl items-center justify-between space-x-2 px-2 pb-1 pt-4 sm:px-6 md:space-x-4",
+        )}
+      >
+        <div
+          className={`flex flex-shrink-0 items-center ${theme_classes.typography.header}`}
+        >
           <Logo />
-          <h1 className="ml-2 hidden w-min text-2xl font-extrabold leading-none sm:text-4xl md:inline-block">
-            Kasey Powers
-          </h1>
+          {showTitle && (
+            <h1 className="ml-2 hidden w-min text-2xl font-extrabold leading-none sm:text-4xl md:inline-block">
+              Kasey Powers
+            </h1>
+          )}
         </div>
         <div className="hidden sm:mx-4 sm:block">
           <div className={theme_classes.buttonGroup.container}>
@@ -120,6 +162,7 @@ export default function Navbar() {
           <DarkmodeToggle />
         </div>
       </div>
+      <div className="h-5 w-full bg-gradient-to-b from-white dark:from-slate-900" />
     </nav>
   );
 }
