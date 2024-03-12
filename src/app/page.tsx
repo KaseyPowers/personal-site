@@ -1,22 +1,22 @@
 import Image from "next/image";
 import Typography from "@/components/typography";
 
-import profile from "./Profile-smaller.jpg";
+import type { ImageLoader } from "next/image";
+import ProfilePhoto from "@/components/profile_photo";
+
+// raw email with capitalization for displaying elsewhere
+const email = "KaseyEPowers@gmail.com";
 
 export default function Home() {
   return (
     <>
-      <Image
+      <ProfilePhoto
         className="float-right rounded-3xl"
-        src={profile}
         width={300}
-        alt="Profile Picture"
+        height={300}
       />
       <Typography as="h1" type="h1">
-        Kasey Powers{" "}
-        <Typography type="hSecondary" className="text-2xl">
-          ( He / They )
-        </Typography>
+        About Me
       </Typography>
       <Typography as="h2" type="h4">
         Software Engineer with a focus on UI/UX Development

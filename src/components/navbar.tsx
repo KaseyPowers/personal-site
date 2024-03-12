@@ -8,60 +8,20 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import Link from "next/link";
 
-import Logo from "./logo";
+import { NavItemDef, isItemActive } from "@/shared/nav_utils";
+
 import DarkmodeToggle from "./darkmode_selector";
 import theme_classes from "./base.styles";
 
-import Typography from "./typography";
-
-interface NavItemDef {
-  name: string;
-  href: string;
-  exact?: boolean;
-}
-
-const navigation: NavItemDef[] = [
-  { name: "Home", href: "/", exact: true },
-  { name: "Dashboard", href: "/dashboard" },
-  { name: "Projects", href: "/projects" },
-  { name: "Calendar", href: "#" },
-] as const;
-
-function isItemActive(item: NavItemDef, pathname: string): boolean {
-  if (item.exact) {
-    // for exact, just do an equality check
-    return item.href === pathname;
-  }
-  // for non-exact, use startswith. NOTE: need to verify this behavior
-  return pathname.startsWith(item.href);
-}
-/**
- * something to track if page has name and info on page.
- * Probably the home page and/or "About Me"
- */
-const hideTitleOnItems: NavItemDef[] = [
-  // get home item
-  navigation[0],
-  // make an exact dashboard as if child pages wouldn't have their own title
-  // {
-  //   ...navigation[1],
-  //   exact: true,
-  // },
-];
-
-export default function Navbar() {
+export default function Navbar({ links }: { links: NavItemDef[] }) {
   const pathname = usePathname();
 
   const useLinks = useMemo(() => {
-    return navigation.map((item) => ({
+    return links.map((item) => ({
       ...item,
       current: isItemActive(item, pathname),
     }));
-  }, [pathname]);
-
-  const showTitle = useMemo(() => {
-    return !hideTitleOnItems.some((item) => isItemActive(item, pathname));
-  }, [pathname]);
+  }, [links, pathname]);
 
   return (
     <nav className="sticky top-0">
@@ -69,19 +29,9 @@ export default function Navbar() {
       <div
         className={clsx(
           theme_classes.background.main,
-          "mx-auto flex max-w-screen-xl items-center justify-between space-x-2 px-2 pb-1 pt-4 sm:px-6 md:space-x-4",
+          "mx-auto flex max-w-screen-xl items-center justify-end space-x-2 px-2 pb-1 pt-4 sm:px-6 md:space-x-4",
         )}
       >
-        <div
-          className={`flex flex-shrink-0 items-center ${theme_classes.typography.header}`}
-        >
-          <Logo />
-          {showTitle && (
-            <h1 className="ml-2 hidden w-min text-2xl font-extrabold leading-none sm:text-4xl md:inline-block">
-              Kasey Powers
-            </h1>
-          )}
-        </div>
         <div className="hidden sm:mx-4 sm:block">
           <div className={theme_classes.buttonGroup.container}>
             {useLinks.map((item) => (
@@ -102,65 +52,63 @@ export default function Navbar() {
             ))}
           </div>
         </div>
-
-        <div className="flex flex-row space-x-4 pr-2 sm:space-x-0">
-          {/* Mobile menu button*/}
-          <Menu as="div" className="relative inline-block sm:hidden">
-            <Menu.Button
+        {/* Mobile menu button*/}
+        <Menu as="div" className="relative inline-block sm:hidden">
+          <Menu.Button
+            className={clsx(
+              theme_classes.button.base,
+              theme_classes.button.not_group,
+              theme_classes.button.default,
+              "inline-flex items-center justify-center",
+            )}
+          >
+            Menu
+            <XMarkIcon
+              className="ml-2 block h-6 w-6 ui-not-open:hidden"
+              aria-hidden="true"
+            />
+            <Bars3Icon
+              className="blcok ml-2 h-6  w-6 ui-open:hidden"
+              aria-hidden="true"
+            />
+          </Menu.Button>
+          <Transition
+            as={Fragment}
+            enter="transition duration-100 ease-out"
+            enterFrom="transform scale-95 opacity-0"
+            enterTo="transform scale-100 opacity-100"
+            leave="transition duration-75 ease-out"
+            leaveFrom="transform scale-100 opacity-100"
+            leaveTo="transform scale-95 opacity-0"
+          >
+            <Menu.Items
               className={clsx(
-                theme_classes.button.base,
-                theme_classes.button.not_group,
-                theme_classes.button.default,
-                "inline-flex items-center justify-center",
+                "absolute right-0 mt-2",
+                theme_classes.menu.container,
               )}
             >
-              Menu
-              <XMarkIcon
-                className="ml-2 block h-6 w-6 ui-not-open:hidden"
-                aria-hidden="true"
-              />
-              <Bars3Icon
-                className="blcok ml-2 h-6  w-6 ui-open:hidden"
-                aria-hidden="true"
-              />
-            </Menu.Button>
-            <Transition
-              as={Fragment}
-              enter="transition duration-100 ease-out"
-              enterFrom="transform scale-95 opacity-0"
-              enterTo="transform scale-100 opacity-100"
-              leave="transition duration-75 ease-out"
-              leaveFrom="transform scale-100 opacity-100"
-              leaveTo="transform scale-95 opacity-0"
-            >
-              <Menu.Items
-                className={clsx(
-                  "absolute right-0 mt-2",
-                  theme_classes.menu.container,
-                )}
-              >
-                {useLinks.map((item) => (
-                  <Menu.Item
-                    key={item.name}
-                    as={Link}
-                    href={item.href}
-                    className={clsx(
-                      "block",
-                      theme_classes.menu.children,
-                      theme_classes.button.base,
-                      item.current
-                        ? theme_classes.button.defaultActive
-                        : theme_classes.button.default,
-                    )}
-                  >
-                    {item.name}
-                  </Menu.Item>
-                ))}
-              </Menu.Items>
-            </Transition>
-          </Menu>
-          <DarkmodeToggle />
-        </div>
+              {useLinks.map((item) => (
+                <Menu.Item
+                  key={item.name}
+                  as={Link}
+                  href={item.href}
+                  className={clsx(
+                    "block",
+                    theme_classes.menu.children,
+                    theme_classes.button.base,
+                    item.current
+                      ? theme_classes.button.defaultActive
+                      : theme_classes.button.default,
+                  )}
+                >
+                  {item.name}
+                </Menu.Item>
+              ))}
+            </Menu.Items>
+          </Transition>
+        </Menu>
+
+        <DarkmodeToggle />
       </div>
       <div className="h-5 w-full bg-gradient-to-b from-white dark:from-slate-900" />
     </nav>

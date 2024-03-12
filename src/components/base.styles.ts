@@ -1,7 +1,12 @@
 import clsx from "clsx";
+/**
+ * NOTES:
+ * currently trying to focus on "slate" for the white-black scale colors
+ */
 const theme_classes = {
   background: {
     main: "bg-white dark:bg-slate-900",
+    sidebar: "bg-slate-200 dark:bg-slate-800",
   },
   buttonGroup: {
     container: "inline-flex rounded-full shadow-lg",

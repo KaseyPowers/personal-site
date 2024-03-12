@@ -4,7 +4,7 @@ export default function Logo() {
   return (
     <svg
       viewBox="0 0 83 100"
-      className={`${styles.logo} border-4 border-current fill-current stroke-current`}
+      className={`${styles.logo} w-full border-4 border-current fill-current stroke-current`}
     >
       <path
         className={styles.kTop}
