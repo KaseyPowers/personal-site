@@ -41,6 +41,8 @@ export default function Navbar({ links }: { links: NavItemDef[] }) {
                 className={clsx(
                   theme_classes.buttonGroup.children,
                   theme_classes.button.base,
+                  theme_classes.button.bordered,
+                  theme_classes.button.not_hidden,
                   item.current && theme_classes.buttonGroup.activeChild,
                   item.current && theme_classes.button.defaultActive,
                   !item.current && theme_classes.button.default,
@@ -57,6 +59,8 @@ export default function Navbar({ links }: { links: NavItemDef[] }) {
           <Menu.Button
             className={clsx(
               theme_classes.button.base,
+              theme_classes.button.bordered,
+              theme_classes.button.not_hidden,
               theme_classes.button.not_group,
               theme_classes.button.default,
               "inline-flex items-center justify-center",
@@ -96,6 +100,8 @@ export default function Navbar({ links }: { links: NavItemDef[] }) {
                     "block",
                     theme_classes.menu.children,
                     theme_classes.button.base,
+                    theme_classes.button.bordered,
+                    theme_classes.button.not_hidden,
                     item.current
                       ? theme_classes.button.defaultActive
                       : theme_classes.button.default,

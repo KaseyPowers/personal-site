@@ -6,7 +6,7 @@ import clsx from "clsx";
 const theme_classes = {
   background: {
     main: "bg-white dark:bg-slate-900",
-    sidebar: "bg-slate-200 dark:bg-slate-800",
+    secondary: "bg-slate-200 dark:bg-slate-800",
   },
   buttonGroup: {
     container: "inline-flex rounded-full shadow-lg",
@@ -16,12 +16,13 @@ const theme_classes = {
   },
   button: {
     base: clsx(
-      "border px-4 py-2 text-sm font-medium focus:ring-2 ",
-      "bg-white dark:bg-slate-800",
+      "px-4 py-2 text-sm font-medium focus:ring-2 ",
       "hover:bg-slate-100 dark:hover:bg-slate-700",
-      "border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
       "focus:ring-slate-100 dark:focus:ring-slate-700",
     ),
+    bordered:
+      "border border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
+    not_hidden: "bg-white dark:bg-slate-800",
     not_group: "rounded-full",
     default: "text-gray-900 dark:text-white",
     defaultActive: "text-blue-700 dark:text-blue-600",
