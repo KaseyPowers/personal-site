@@ -1,6 +1,8 @@
 import clsx from "clsx";
 
-import { EnvelopeIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+
+import { EnvelopeIcon, DocumentTextIcon } from "@heroicons/react/24/solid";
 
 import baseStyles from "./base.styles";
 
@@ -50,6 +52,12 @@ const socialLinks: SocialLink[] = [
     href: "mailto:kaseyepowers@gmail.com",
     icon: <EnvelopeIcon />,
   },
+  {
+    id: "resume",
+    name: "Resume",
+    href: "/Resume-Kasey-Powers.pdf",
+    icon: <DocumentTextIcon />,
+  },
 ];
 
 export default function MyLinks({ className }: { className?: string }) {
@@ -63,7 +71,7 @@ export default function MyLinks({ className }: { className?: string }) {
       {socialLinks.map(({ id, name, href, icon }) => {
         return (
           <li key={id}>
-            <a
+            <Link
               className={clsx(
                 baseStyles.button.base,
                 "rounded-lg",
@@ -81,7 +89,7 @@ export default function MyLinks({ className }: { className?: string }) {
               >
                 {name}
               </span>
-            </a>
+            </Link>
           </li>
         );
       })}

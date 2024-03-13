@@ -13,6 +13,7 @@ import MyLinks from "@/components/socials";
 
 import baseStyles from "@/components/base.styles";
 import Providers from "./root_providers";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,10 +23,9 @@ export const metadata: Metadata = {
 };
 
 const navigation: NavItemDef[] = [
-  { name: "Home", href: "/", exact: true },
+  { name: "About Me", href: "/about_me", exact: true },
   { name: "Dashboard", href: "/dashboard" },
   { name: "Projects", href: "/projects" },
-  { name: "Calendar", href: "#" },
 ] as const;
 
 export default function RootLayout({
@@ -53,7 +53,9 @@ export default function RootLayout({
           >
             <div className="flex flex-1 flex-col">
               <div className="mx-auto w-20 sm:w-28 lg:w-40">
-                <Logo />
+                <Link href="/">
+                  <Logo />
+                </Link>
               </div>
               <h1 className="order-1 mt-1.5 block w-min text-2xl font-black leading-none sm:text-4xl sm:leading-none lg:text-5xl lg:leading-none">
                 Kasey
@@ -74,8 +76,8 @@ export default function RootLayout({
             {/* </div> */}
 
             {/* Footer element can just be an empty flex-1 if we don't have any footer content */}
-            <div className="flex flex-1 flex-col justify-end">
-              <span>Optional Footer</span>
+            <div className="flex flex-1 flex-col justify-end text-center text-sm">
+              <span>Hint: Try hovering over logo</span>
             </div>
           </aside>
           <div className="max-h-dvh flex-auto overflow-y-auto">

@@ -44,8 +44,9 @@ export default function Navbar({ links }: { links: NavItemDef[] }) {
                   theme_classes.button.bordered,
                   theme_classes.button.not_hidden,
                   item.current && theme_classes.buttonGroup.activeChild,
-                  item.current && theme_classes.button.defaultActive,
-                  !item.current && theme_classes.button.default,
+                  item.current
+                    ? theme_classes.button.defaultActive
+                    : theme_classes.button.default,
                 )}
                 aria-current={item.current ? "page" : undefined}
               >

@@ -21,21 +21,30 @@ function Typography({
   type = "default",
   color: propColor,
   className,
+  noGutter = true,
 }: {
   as?: React.ComponentType<{ className: string }> | React.ElementType;
   children: React.ReactNode;
   type?: TypeOptions;
   color?: ColorOptions;
   className?: string;
+  noGutter?: boolean;
 }) {
   let color = propColor;
+  const isHeader = type.startsWith("h") && type !== "hSecondary";
   if (!color) {
     // default color is base except for headers
-    color = type.startsWith("h") && type !== "hSecondary" ? "header" : "base";
+    color = isHeader ? "header" : "base";
   }
+  let marginClass = !noGutter && isHeader && "mb-[0.35em]";
   return (
     <Component
-      className={clsx(typeStyle[type], baseStyles.typography[color], className)}
+      className={clsx(
+        typeStyle[type],
+        baseStyles.typography[color],
+        marginClass,
+        className,
+      )}
     >
       {children}
     </Component>

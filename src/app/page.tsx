@@ -10,18 +10,19 @@ const email = "KaseyEPowers@gmail.com";
 export default function Home() {
   return (
     <>
-      <ProfilePhoto
-        className="float-right rounded-3xl"
-        width={300}
-        height={300}
-      />
-      <Typography as="h1" type="h1">
-        About Me
+      <Typography as="h3" type="h4" className="leading-tight">
+        I am a Software Developer with a focus on UI/UX Development.
       </Typography>
-      <Typography as="h2" type="h4">
-        Software Engineer with a focus on UI/UX Development
+      <Typography as="p" type="h5" className="my-7" noGutter>
+        A quick learner, lover of problem solving and complex challenges.
+        <br />
+        Experienced mentor, communicator, and generally helping however I can.
       </Typography>
-      More
+      TODO: These Sections and figure out if in one page or in seperate "About
+      Me" page
+      <br />
+      - Timeline
+      <br />- Strengths
     </>
   );
 }
