@@ -23,7 +23,6 @@ export const metadata: Metadata = {
 };
 
 const navigation: NavItemDef[] = [
-  { name: "About Me", href: "/about_me", exact: true },
   { name: "Dashboard", href: "/dashboard" },
   { name: "Projects", href: "/projects" },
 ] as const;

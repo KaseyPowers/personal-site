@@ -9,7 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {},
     },
   },
   plugins: [require("@headlessui/tailwindcss")],
