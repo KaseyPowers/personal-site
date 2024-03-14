@@ -84,7 +84,7 @@ export default function MyLinks({ className }: { className?: string }) {
               {icon && <span className="inline-block h-6 w-6">{icon}</span>}
               <span
                 className={clsx(
-                  icon && "ml-2 hidden leading-none sm:inline-block",
+                  icon && "ml-2 hidden text-right leading-none sm:inline-block",
                 )}
               >
                 {name}

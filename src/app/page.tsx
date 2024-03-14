@@ -6,17 +6,17 @@ import clsx from "clsx";
 const email = "KaseyEPowers@gmail.com";
 
 const answerTexts = [
-  "A Software Developer with a focus on UI/UX Development.",
+  "Software Developer with a focus on UI/UX Development.",
   "Quick learner, picking up new technologies, languages, and frameworks as needed.",
-  "Lover of complex challenges and creative problem solving.",
+  "Lover of complex challenges with creative solutions.",
+  "Approachable resource of knowledge with experience as a mentor",
   "Apparently someone asks themselves existential questions to sound smarter but points it out later to show a sense of humor.",
-  "Mentor, communicator, and approachable resource to share knowledge with all who want it.",
 ];
 
 export default function Home() {
   return (
     <>
-      <div className="float-right w-1/3 min-w-64 p-4">
+      <div className="xs:w-1/3 xs:min-w-64 float-none w-full p-4 sm:float-right">
         <ProfilePhoto
           className="mx-auto rounded-3xl"
           width={300}
@@ -37,7 +37,7 @@ export default function Home() {
           key={text}
           className={clsx(
             baseStyles.typography.header,
-            "my-8 w-fit border-l-2 px-2 text-lg font-semibold sm:text-xl lg:text-3xl ",
+            "my-8 w-fit border-l-2 px-2 text-base font-semibold sm:text-xl lg:text-3xl ",
           )}
         >
           {text}

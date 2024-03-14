@@ -23,8 +23,8 @@ export const metadata: Metadata = {
 };
 
 const navigation: NavItemDef[] = [
+  { name: "Home", href: "/", exact: true },
   { name: "About Me", href: "/about" },
-  { name: "Blog", href: "/blog" },
   { name: "Projects", href: "/projects" },
 ] as const;
 
@@ -48,7 +48,7 @@ export default function RootLayout({
           <aside
             className={clsx(
               baseStyles.typography.header,
-              "flex flex-initial flex-col items-stretch space-y-4 p-4",
+              "xs:px-4 flex flex-initial flex-col items-stretch space-y-4 px-2 py-4",
             )}
           >
             <div className="flex flex-1 flex-col">
@@ -76,9 +76,7 @@ export default function RootLayout({
             {/* </div> */}
 
             {/* Footer element can just be an empty flex-1 if we don't have any footer content */}
-            <div className="flex flex-1 flex-col justify-end text-center text-sm">
-              <span>Hint: Try hovering over logo</span>
-            </div>
+            <div className="flex-1" />
           </aside>
           <div className="max-h-dvh flex-auto overflow-y-auto">
             <Navbar links={navigation} />

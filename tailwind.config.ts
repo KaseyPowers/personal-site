@@ -1,3 +1,4 @@
+import defaultTheme from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -8,8 +9,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
+    screens: {
+      xs: "475px",
+      ...defaultTheme.screens,
     },
+    extend: {},
   },
   plugins: [require("@headlessui/tailwindcss")],
 };

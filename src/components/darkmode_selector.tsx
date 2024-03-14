@@ -20,13 +20,14 @@ export default function DarkmodeToggle() {
       onClick={toggleTheme}
       className={clsx(
         theme_classes.button.base,
+        theme_classes.button.bordered,
         theme_classes.button.not_group,
         theme_classes.button.default,
         "shadow-lg",
       )}
     >
-      <SunIcon className="h-6 w-6 block dark:hidden" />
-      <MoonIcon className="h-6 w-6 hidden dark:block" />
+      <SunIcon className="block h-6 w-6 dark:hidden" />
+      <MoonIcon className="hidden h-6 w-6 dark:block" />
     </button>
   );
 }

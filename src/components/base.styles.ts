@@ -16,7 +16,7 @@ const theme_classes = {
     container: "inline-flex rounded-full shadow-lg",
     children:
       "rounded-none first:rounded-l-full last:rounded-r-full focus:z-10",
-    activeChild: "shadow-blue-500/50 shadow-md",
+    activeChild: "shadow-indigo-500/50 shadow-md",
   },
   button: {
     base: clsx(
@@ -30,7 +30,7 @@ const theme_classes = {
     default:
       "text-gray-900 dark:text-white focus:ring-slate-100 dark:focus:ring-slate-700",
     defaultActive:
-      "text-blue-700 dark:text-blue-600 focus:ring-blue-100 dark:focus:ring-blue-700",
+      "text-indigo-700 dark:text-indigo-600 focus:ring-indigo-100 dark:focus:ring-indigo-700",
   },
   menu: {
     container: "bg-white dark:bg-gray-800 rounded-lg shadow-lg",

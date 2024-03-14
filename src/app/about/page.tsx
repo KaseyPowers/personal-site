@@ -7,7 +7,7 @@ const Badge = ({ children }: { children: React.ReactNode }) => (
     className={clsx(
       baseStyles.background.secondary,
       baseStyles.typography.secondary,
-      "mx-1 my-0.5 rounded px-2.5 py-0.5 font-medium",
+      "mx-1 my-0.5 rounded px-2.5 py-0.5 text-xs font-medium sm:text-base",
     )}
   >
     {children}
@@ -42,12 +42,11 @@ export default function AboutMe() {
             )}
           />
         </div>
-        <div className="mx-auto w-3/4 max-w-screen-md text-xl">
-          Here you can learn about me, my technical skills, where I have been,
-          and my goals
+        <div className="mx-auto w-3/4 max-w-screen-sm text-base sm:text-xl">
+          My technical skills, where I have been, and my goals
         </div>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row sm:space-x-4 ">
         <div className="flex-1 space-y-4">
           <Typography as="h4" type="h3">
             Overview
