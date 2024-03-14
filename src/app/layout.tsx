@@ -23,7 +23,8 @@ export const metadata: Metadata = {
 };
 
 const navigation: NavItemDef[] = [
-  { name: "Dashboard", href: "/dashboard" },
+  { name: "About Me", href: "/about" },
+  { name: "Blog", href: "/blog" },
   { name: "Projects", href: "/projects" },
 ] as const;
 
@@ -47,7 +48,7 @@ export default function RootLayout({
           <aside
             className={clsx(
               baseStyles.typography.header,
-              "flex flex-initial flex-col items-stretch p-4",
+              "flex flex-initial flex-col items-stretch space-y-4 p-4",
             )}
           >
             <div className="flex flex-1 flex-col">

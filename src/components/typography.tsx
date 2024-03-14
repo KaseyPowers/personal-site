@@ -3,6 +3,7 @@ import baseStyles from "./base.styles";
 
 const typeStyle = {
   default: "text-base font-normal",
+  medium: "text-lg font-medium",
   h1: "text-5xl font-extrabold",
   h2: "text-4xl font-bold",
   h3: "text-3xl font-bold",

@@ -1,6 +1,4 @@
-import Image from "next/image";
 import baseStyles from "@/components/base.styles";
-import Typography from "@/components/typography";
 import ProfilePhoto from "@/components/profile_photo";
 import clsx from "clsx";
 
@@ -32,23 +30,19 @@ export default function Home() {
         )}
       >
         Who is{" "}
-        <span className="text-indigo-600 dark:text-indigo-400">
-          Kasey Powers
-        </span>
-        ?
+        <span className={baseStyles.typography.highlight}>Kasey Powers</span>?
       </h3>
       {answerTexts.map((text) => (
         <div
           key={text}
           className={clsx(
             baseStyles.typography.header,
-            "my-4 w-fit border-l-2 px-2 text-lg font-semibold sm:text-xl lg:text-3xl ",
+            "my-8 w-fit border-l-2 px-2 text-lg font-semibold sm:text-xl lg:text-3xl ",
           )}
         >
           {text}
         </div>
       ))}
-      TODO: Timeline - Maybe others
     </>
   );
 }

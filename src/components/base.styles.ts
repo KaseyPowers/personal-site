@@ -7,6 +7,10 @@ const theme_classes = {
   background: {
     main: "bg-white dark:bg-slate-900",
     secondary: "bg-slate-200 dark:bg-slate-800",
+    highlight: "bg-indigo-600 dark:bg-indigo-400",
+  },
+  border: {
+    highlight: "border-indigo-600 dark:border-indigo-400",
   },
   buttonGroup: {
     container: "inline-flex rounded-full shadow-lg",
@@ -35,6 +39,8 @@ const theme_classes = {
   typography: {
     header: "text-slate-900 dark:text-white",
     base: "text-slate-500 dark:text-slate-400",
+    secondary: "text-slate-800 dark:text-slate-300",
+    highlight: "text-indigo-600 dark:text-indigo-400",
   },
 };
 
