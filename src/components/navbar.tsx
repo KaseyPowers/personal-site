@@ -42,6 +42,8 @@ export default function Navbar({ links }: { links: NavItemDef[] }) {
                   theme_classes.buttonGroup.children,
                   theme_classes.button.base,
                   theme_classes.button.bordered,
+                  theme_classes.border.base,
+                  theme_classes.border.baseHover,
                   theme_classes.button.not_hidden,
                   item.current && theme_classes.buttonGroup.activeChild,
                   item.current
@@ -61,6 +63,8 @@ export default function Navbar({ links }: { links: NavItemDef[] }) {
             className={clsx(
               theme_classes.button.base,
               theme_classes.button.bordered,
+              theme_classes.border.base,
+              theme_classes.border.baseHover,
               theme_classes.button.not_hidden,
               theme_classes.button.not_group,
               theme_classes.button.default,
@@ -102,6 +106,8 @@ export default function Navbar({ links }: { links: NavItemDef[] }) {
                     theme_classes.menu.children,
                     theme_classes.button.base,
                     theme_classes.button.bordered,
+                    theme_classes.border.base,
+                    theme_classes.border.baseHover,
                     theme_classes.button.not_hidden,
                     item.current
                       ? theme_classes.button.defaultActive

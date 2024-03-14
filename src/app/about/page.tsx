@@ -2,6 +2,8 @@ import clsx from "clsx";
 import Typography from "@/components/typography";
 import baseStyles from "@/components/base.styles";
 
+import { CalendarIcon } from "@heroicons/react/24/solid";
+
 const Badge = ({ children }: { children: React.ReactNode }) => (
   <span
     className={clsx(
@@ -12,6 +14,41 @@ const Badge = ({ children }: { children: React.ReactNode }) => (
   >
     {children}
   </span>
+);
+
+interface TimelineItem {
+  id: string;
+  title: string;
+}
+
+const Timeline = ({ items }: { items: TimelineItem[] }) => (
+  <ol className={clsx("relative border-s", baseStyles.border.base)}>
+    {items.map(({ id, title }) => (
+      <li key={id} className="mb-5 ms-6">
+        <span
+          className={clsx(
+            "absolute -start-3 flex h-6 w-6 items-center justify-center rounded-full ring-8 ring-white dark:ring-gray-900",
+            baseStyles.background.highlight,
+            baseStyles.typography.highlight_reverse,
+          )}
+        >
+          <CalendarIcon className="w-2/3" />
+        </span>
+        <Typography as="h4" type="h4" className="mb-0.5 leading-none">
+          {title}
+        </Typography>
+        <time
+          className={clsx(
+            "mb-2 block text-sm font-light leading-none",
+            baseStyles.typography.sub,
+          )}
+        >
+          Start - End
+        </time>
+        <p>Details</p>
+      </li>
+    ))}
+  </ol>
 );
 
 const skills = [
@@ -25,6 +62,17 @@ const skills = [
   "Github",
   "Responsive Design",
   "Communication",
+];
+
+const timelineData: TimelineItem[] = [
+  {
+    id: "first",
+    title: "First",
+  },
+  {
+    id: "second",
+    title: "Second",
+  },
 ];
 
 export default function AboutMe() {
@@ -89,7 +137,7 @@ export default function AboutMe() {
         />
       </div>
 
-      <div>TODO: Timeline</div>
+      <Timeline items={timelineData} />
     </div>
   );
 }

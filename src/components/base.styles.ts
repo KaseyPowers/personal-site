@@ -10,6 +10,8 @@ const theme_classes = {
     highlight: "bg-indigo-600 dark:bg-indigo-400",
   },
   border: {
+    base: "border-slate-300 dark:border-slate-700",
+    baseHover: "dark:hover:border-slate-600",
     highlight: "border-indigo-600 dark:border-indigo-400",
   },
   buttonGroup: {
@@ -23,8 +25,7 @@ const theme_classes = {
       "px-4 py-2 text-sm font-medium focus:outline-none focus:ring-2",
       "hover:bg-slate-100 dark:hover:bg-slate-700",
     ),
-    bordered:
-      "border border-slate-300 dark:border-slate-700 dark:hover:border-slate-600",
+    bordered: "border",
     not_hidden: "bg-white dark:bg-slate-800",
     not_group: "rounded-full",
     default:
@@ -39,8 +40,10 @@ const theme_classes = {
   typography: {
     header: "text-slate-900 dark:text-white",
     base: "text-slate-500 dark:text-slate-400",
+    sub: "text-slate-400 dark:text-slate-500",
     secondary: "text-slate-800 dark:text-slate-300",
     highlight: "text-indigo-600 dark:text-indigo-400",
+    highlight_reverse: "text-indigo-200 dark:text-indigo-800",
   },
 };
 
