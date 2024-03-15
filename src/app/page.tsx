@@ -10,7 +10,7 @@ const answerTexts = [
   "Quick learner, picking up new technologies, languages, and frameworks as needed.",
   "Lover of complex challenges with creative solutions.",
   "Approachable resource of knowledge with experience as a mentor",
-  "Apparently someone asks themselves existential questions to sound smarter but points it out later to show a sense of humor.",
+  "Someone who asks themselves existential questions to sound smart but points it out later to show a sense of humor.",
 ];
 
 export default function Home() {
