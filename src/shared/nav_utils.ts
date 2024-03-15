@@ -1,7 +1,11 @@
 export interface NavItemDef {
+  id: string;
   name: string;
   href: string;
+  target?: string;
   exact?: boolean;
+  icon?: JSX.Element;
+  active?: boolean;
 }
 
 export function isItemActive(item: NavItemDef, pathname: string): boolean {

@@ -7,13 +7,10 @@ import "./globals.css";
 
 import type { NavItemDef } from "@/shared/nav_utils";
 
-import Navbar from "@/components/navbar";
-import Logo from "@/components/logo";
-import MyLinks from "@/components/socials";
-
 import baseStyles from "@/components/base.styles";
 import Providers from "./root_providers";
-import Link from "next/link";
+
+import Sidebar from "@/components/sidebar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,9 +20,9 @@ export const metadata: Metadata = {
 };
 
 const navigation: NavItemDef[] = [
-  { name: "Home", href: "/", exact: true },
-  { name: "About Me", href: "/about" },
-  { name: "Projects", href: "/projects" },
+  { id: "home", name: "Home", href: "/", exact: true },
+  { id: "about_me", name: "About Me", href: "/about" },
+  { id: "projects", name: "Projects", href: "/projects" },
 ] as const;
 
 export default function RootLayout({
@@ -45,42 +42,9 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <aside
-            className={clsx(
-              baseStyles.typography.header,
-              "xs:px-4 flex flex-initial flex-col items-stretch space-y-4 px-2 py-4",
-            )}
-          >
-            <div className="flex flex-1 flex-col">
-              <div className="mx-auto w-20 sm:w-28 lg:w-40">
-                <Link href="/">
-                  <Logo />
-                </Link>
-              </div>
-              <h1 className="order-1 mt-1.5 block w-min text-2xl font-black leading-none sm:text-4xl sm:leading-none lg:text-5xl lg:leading-none">
-                Kasey
-              </h1>
-              <span className="order-2 mt-0 text-right text-xs leading-none sm:order-1 sm:mt-0.5 sm:text-sm sm:leading-normal lg:mt-1.5">
-                (He/They)
-              </span>
-              <h1 className="order-1 -mt-1.5 block w-min text-2xl font-black leading-none sm:-mt-2.5 sm:text-4xl sm:leading-none lg:-mt-4 lg:text-5xl lg:leading-none">
-                Powers
-              </h1>
-              <h2 className="order-3 w-min text-base font-medium leading-none sm:text-lg sm:font-bold sm:leading-none">
-                Software Developer
-              </h2>
-            </div>
-
-            {/* <div className="flex flex-1 flex-col items-center justify-center"> */}
-            <MyLinks className="flex-1" />
-            {/* </div> */}
-
-            {/* Footer element can just be an empty flex-1 if we don't have any footer content */}
-            <div className="flex-1" />
-          </aside>
-          <div className="max-h-dvh flex-auto overflow-y-auto">
-            <Navbar links={navigation} />
-            <main className="container mx-auto h-dvh px-4">{children}</main>
+          <Sidebar />
+          <div className="flex-auto overflow-y-auto">
+            <main className="container mx-auto px-4 pt-8">{children}</main>
           </div>
         </Providers>
       </body>

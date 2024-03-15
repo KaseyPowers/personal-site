@@ -8,7 +8,7 @@ import clsx from "clsx";
 
 import theme_classes from "./base.styles";
 
-export default function DarkmodeToggle() {
+export default function DarkmodeToggle({ className }: { className?: string }) {
   const { theme, setTheme } = useTheme();
 
   const toggleTheme = () => {
@@ -23,7 +23,9 @@ export default function DarkmodeToggle() {
         theme_classes.button.bordered,
         theme_classes.button.not_group,
         theme_classes.button.default,
+        theme_classes.button.not_hidden,
         "shadow-lg",
+        className,
       )}
     >
       <SunIcon className="block h-6 w-6 dark:hidden" />
