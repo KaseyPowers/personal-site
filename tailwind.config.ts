@@ -13,7 +13,15 @@ const config: Config = {
       xs: "475px",
       ...defaultTheme.screens,
     },
-    extend: {},
+    extend: {
+      spacing: {
+        "13": "3.25rem",
+      },
+      gridTemplateColumns: {
+        timeline: "0.25rem 1fr",
+        "timeline-alt": "1fr 0.25rem 1fr",
+      },
+    },
   },
   plugins: [require("@headlessui/tailwindcss")],
 };

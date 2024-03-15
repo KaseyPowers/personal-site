@@ -45,6 +45,8 @@ const theme_classes = {
     highlight: "text-indigo-600 dark:text-indigo-400",
     highlight_reverse: "text-indigo-200 dark:text-indigo-800",
   },
+  links:
+    "no-underline hover:underline text-cyan-600 hover:text-cyan-500 dark:text-cyan-400 hover:dark:text-cyan-200",
 };
 
 export default theme_classes;
