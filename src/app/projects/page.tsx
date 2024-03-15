@@ -10,3 +10,12 @@ export default function Projects() {
     </>
   );
 }
+
+// Custom TTRPG System
+
+// Working on creating a custom System based loosely on DnD 3.5e, Pathfinder (1 & 2), and GURPS. Alongside this, working on creating an interactive site/tool to more easily visualize the rules and character growth options.
+// Cyberdeck
+
+// Mostly just a daydream, but goals are focused around making a small keyboard + screen combination with added features like small oled displays showing custom information.
+// Car Modifications/Upgrades
+// Plenty of small ideas here, but namely playing around with concepts like a DIY dashcam or Media Control Screen.

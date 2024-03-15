@@ -3,6 +3,8 @@ import Typography from "@/components/typography";
 import baseStyles from "@/components/base.styles";
 import Timeline, { TimelineItem } from "@/components/timeline";
 
+import timelineData from "./timeline_items";
+
 const Badge = ({ children }: { children: React.ReactNode }) => (
   <span
     className={clsx(
@@ -28,109 +30,78 @@ const skills = [
   "Communication",
 ];
 
-const timelineData: TimelineItem[] = [
-  {
-    id: "start",
-    title: "Early Life",
-    time: "1993 - 2011",
-    content:
-      'Pre-Career, also known as "Childhood", no notable career acheivements.',
-  },
-  {
-    id: "college",
-    title: "Florida Institute of Technology",
-    time: "2011 - 2015",
-    content: (
-      <>
-        B.S. Software Engineering
-        <br />
-        Minor in Computational Mathmatics
-      </>
-    ),
-  },
-  {
-    id: "availity",
-    title: "Availity",
-    time: "2015 - Mar 2019",
-    contentTitle: "Intern -> Developer 1A",
-    content: (
-      <ul className="list-inside list-disc">
-        <li>
-          Worked in a regulated environment, complying with HIPAA and government
-          accessibility requirements.
-        </li>
-        <li>
-          Rebuilt the home page and navigation, with new frameworks (angularJS)
-          and styling, serving 50k unique visitors per month.
-        </li>
-        <li>
-          Continuous contributions to companies{"'"} open source tools and
-          libraries.
-        </li>
-        <li>
-          Reworked internal angular services to be usable with other frameworks
-          like React (
-          <a
-            href="https://github.com/Availity/sdk-js"
-            className={baseStyles.links}
-          >
-            github.com/Availity/sdk-js
-          </a>
-          ). While doing so, cleaned up code with new ES6 syntax and updated
-          tests using Jest.
-        </li>
-        <li>
-          Responsible for the mentorship and training of team members new to
-          front-end development.
-        </li>
-        <li>
-          Provided assistance to employees across teams with AngularJS as well
-          as internal tools and libraries.
-        </li>
-      </ul>
-    ),
-  },
-  {
-    id: "primeTrust",
-    title: "Prime Trust",
-    contentTitle: "Senior Software Developer",
-    time: "2015 - Mar 2019",
-    content: (
-      <ul className="list-inside list-disc">
-        <li>
-          Tech lead of a team of full-stack engineers for project migrating key
-          internal front-end tools used by 75+ in sales, compliance and finance
-          operation from Ember to React JSX with GraphQL and Ant Design
-          frameworks.
-        </li>
-        <li>Complied with requirements of financial regulations.</li>
-        <li>
-          Built suites of tools to improve developer experience, including
-          hooks, contexts, wrapping react-router to build navigation UI, and
-          GraphQL tools that automatically apply filters from pagination and
-          generating filter options from the schema.
-        </li>
-        <li>
-          Built and maintained 10+ apps and embedded scripts integrated into
-          customer applications, including a credit-card processing app that
-          handled over 2 Million transactions.
-        </li>
-        <li>
-          Improved security and PCI compliance of credit card and other private
-          data collection while refactoring to isolate relevant codebases
-          without interrupting the users experience.
-        </li>
-        <li>
-          Maintained a reputation as a helpful resource across the company for
-          questions around the front-end as well as mentored 5 full-stack
-          developers starting from a range of experience from recent bootcamp
-          grads to senior level by teaching Javascript, ES6 and React concepts
-          until they were comfortable doing feature work unassisted.
-        </li>
-      </ul>
-    ),
-  },
-];
+const Goals = () => (
+  <>
+    <div className="mx-auto w-fit text-center">
+      <Typography as="h4" type="h3">
+        Goals
+      </Typography>
+      <div
+        className={clsx(
+          baseStyles.background.highlight,
+          "mx-auto my-2 h-1.5 w-1/3 rounded-full",
+        )}
+      />
+    </div>
+
+    <Typography as="p">
+      Professionally, the core of my goals for the future are to keep growing as
+      a developer while learning and contributing to exciting projects. All
+      while working alongside and colaborating with other talented people.
+    </Typography>
+
+    <ul className="mx-4 list-inside divide-y divide-gray-200 md:mx-8 lg:mx-12 dark:divide-gray-700">
+      <li className="pb-3">
+        <Typography as="h5" type="h4">
+          Become proficient with the Backend to become a Fullstack Developer
+        </Typography>
+        <ul className="list-inside list-disc">
+          <li>
+            I have experimented with some basic servers for mock data or basic
+            personal projects.
+          </li>
+          <li>
+            From databases to security and many other aspects of BE development,
+            all I know is there is a lot I don't know.
+          </li>
+        </ul>
+      </li>
+      <li className="pb-3">
+        <Typography as="h5" type="h4">
+          Learn more of the art of UX design from scratch
+        </Typography>
+        <ul className="list-inside list-disc">
+          <li>
+            I have experience executing provided designs and ideas, or at least
+            examples, as well as making adjustments as I felt they were needed,
+            but not creating them myself.
+          </li>
+          <li>
+            I'd like to practice the creative process to come up with more and
+            better visuals
+          </li>
+          <li>
+            I find the psychology behind UX design very interesting and would
+            like to learn more about it and how to encorperate it into my work.
+          </li>
+          <li>Using art tools and related tools in the design process.</li>
+        </ul>
+      </li>
+      <li className="pb-3">
+        <Typography as="h5" type="h4">
+          More technologies and frameworks outside of web applications.
+        </Typography>
+        <ul className="list-inside list-disc">
+          <li>
+            I'd love to learn how to do more UI/UX work in different
+            environments, such as desktop or mobile apps.
+          </li>
+          <li>Physical projects like arduinio/raspberry pi based projects.</li>
+        </ul>
+      </li>
+    </ul>
+  </>
+);
 
 export default function AboutMe() {
   return (
@@ -164,11 +135,6 @@ export default function AboutMe() {
             enthusiasticly share my knowledge with others, mentoring when I can,
             and generally being approachable to help in any way.
           </Typography>
-          <Typography as="p">
-            My goals professionally are to keep growing as a developer while
-            learning and contributing to exciting projects. All while working
-            alongside and colaborating with other talented people.
-          </Typography>
         </div>
         <div className="flex-1 space-y-4">
           <Typography as="h4" type="h3">
@@ -183,7 +149,7 @@ export default function AboutMe() {
       </div>
 
       <div className="mx-auto w-fit text-center">
-        <Typography as="h3" type="h2">
+        <Typography as="h4" type="h3">
           Timeline
         </Typography>
         <div
@@ -194,6 +160,8 @@ export default function AboutMe() {
         />
       </div>
       <Timeline items={timelineData} />
+
+      <Goals />
     </div>
   );
 }

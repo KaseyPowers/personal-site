@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Kasey Powers",
-  description: "My Personal Site",
+  description: "My Personal Portfolio Site",
 };
 
 const navigation: NavItemDef[] = [
@@ -44,7 +44,9 @@ export default function RootLayout({
         <Providers>
           <Sidebar />
           <div className="flex-auto overflow-y-auto">
-            <main className="container mx-auto px-4 pt-8">{children}</main>
+            <main className="container mx-auto px-4 pt-8 lg:px-8">
+              {children}
+            </main>
           </div>
         </Providers>
       </body>

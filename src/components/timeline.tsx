@@ -56,7 +56,7 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
                 <CalendarIcon className="w-2/3" />
               </span>
               <Typography
-                as="h4"
+                as="h5"
                 type="h4"
                 className="flex items-center justify-between leading-none"
               >
@@ -74,7 +74,7 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
             </div>
 
             {contentTitle && (
-              <Typography as="h5" type="h5" color="highlight">
+              <Typography as="h6" type="h5" color="highlight">
                 {contentTitle}
               </Typography>
             )}
