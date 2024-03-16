@@ -30,6 +30,32 @@ const skills = [
   "Communication",
 ];
 
+const goalsText = [
+  {
+    title: "Become proficient with the Backend to become a Fullstack Developer",
+    items: [
+      "I have experimented with some basic servers for mock data or basic personal projects.",
+      "From databases to security and many other aspects of BE development, all I know is there is a lot I don't know.",
+    ],
+  },
+  {
+    title: "Learn more of the art of UX design from scratch",
+    items: [
+      "I have experience executing provided designs and ideas, or at least examples, as well as making adjustments as I felt they were needed, but not creating them myself.",
+      "I'd like to practice the creative process to come up with more and better visuals",
+      "I find the psychology behind UX design very interesting and would like to learn more about it and how to encorperate it into my work.",
+      "Using art tools and related tools in the design process.",
+    ],
+  },
+  {
+    title: "More technologies and frameworks outside of web applications.",
+    items: [
+      "I'd love to learn how to do more UI/UX work in different environments, such as desktop or mobile apps.",
+      "Physical projects like arduinio/raspberry pi based projects.",
+    ],
+  },
+];
+
 const Goals = () => (
   <>
     <div className="mx-auto w-fit text-center">
@@ -51,54 +77,18 @@ const Goals = () => (
     </Typography>
 
     <ul className="mx-4 list-inside divide-y divide-gray-200 md:mx-8 lg:mx-12 dark:divide-gray-700">
-      <li className="pb-3">
-        <Typography as="h5" type="h4">
-          Become proficient with the Backend to become a Fullstack Developer
-        </Typography>
-        <ul className="list-inside list-disc">
-          <li>
-            I have experimented with some basic servers for mock data or basic
-            personal projects.
-          </li>
-          <li>
-            From databases to security and many other aspects of BE development,
-            all I know is there is a lot I don't know.
-          </li>
-        </ul>
-      </li>
-      <li className="pb-3">
-        <Typography as="h5" type="h4">
-          Learn more of the art of UX design from scratch
-        </Typography>
-        <ul className="list-inside list-disc">
-          <li>
-            I have experience executing provided designs and ideas, or at least
-            examples, as well as making adjustments as I felt they were needed,
-            but not creating them myself.
-          </li>
-          <li>
-            I'd like to practice the creative process to come up with more and
-            better visuals
-          </li>
-          <li>
-            I find the psychology behind UX design very interesting and would
-            like to learn more about it and how to encorperate it into my work.
-          </li>
-          <li>Using art tools and related tools in the design process.</li>
-        </ul>
-      </li>
-      <li className="pb-3">
-        <Typography as="h5" type="h4">
-          More technologies and frameworks outside of web applications.
-        </Typography>
-        <ul className="list-inside list-disc">
-          <li>
-            I'd love to learn how to do more UI/UX work in different
-            environments, such as desktop or mobile apps.
-          </li>
-          <li>Physical projects like arduinio/raspberry pi based projects.</li>
-        </ul>
-      </li>
+      {goalsText.map((goal) => (
+        <li className="py-3" key={goal.title}>
+          <Typography as="h5" type="h4">
+            {goal.title}
+          </Typography>
+          <ul className="list-inside list-disc">
+            {goal.items.map((text) => (
+              <li key={text}>{text}</li>
+            ))}
+          </ul>
+        </li>
+      ))}
     </ul>
   </>
 );
