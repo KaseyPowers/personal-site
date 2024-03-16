@@ -74,7 +74,7 @@ export default function Sidebar() {
   return (
     <aside
       className={clsx(
-        baseStyles.typography.header,
+        baseStyles.typography.colors.header,
         "flex flex-initial flex-col items-stretch space-y-8 px-2 py-4 xs:px-4",
       )}
     >

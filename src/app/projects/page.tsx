@@ -1,21 +1,40 @@
-import Image from "next/image";
+import baseStyles from "@/components/base.styles";
+import Card from "@/components/card";
+
+import { allProjectCategories, ProjectDef } from "./project_definitions";
+import Typography from "@/components/typography";
+
+const ProjectCard = ({ project }: { project: ProjectDef }) => {
+  const { title, subTitle, description } = project;
+  return (
+    <Card className="row-span-auto">
+      <Card.Content>
+        <Card.Title>{title}</Card.Title>
+        {subTitle && <Card.SubTitle>{subTitle}</Card.SubTitle>}
+        <p className="mt-1">{description}</p>
+      </Card.Content>
+    </Card>
+  );
+};
 
 export default function Projects() {
-  return (
-    <>
-      <div className="font-mono text-5xl">
-        <div>Project Page Coming Soon!</div>
-        <div className="my-10">Should be ready by Christmas 1999!!</div>
+  return allProjectCategories.map(
+    ({ id, title, subTitle, projects }, index) => (
+      <div key={id} className="my-4 space-y-4">
+        <Typography as={index ? "h4" : "h3"} type={index ? "h4" : "h2"}>
+          {title}
+        </Typography>
+        {subTitle && (
+          <Typography as="h5" type="h5" color="sub">
+            {subTitle}
+          </Typography>
+        )}
+        <div className="grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {projects.map((project) => (
+            <ProjectCard project={project} key={project.id} />
+          ))}
+        </div>
       </div>
-    </>
+    ),
   );
 }
-
-// Custom TTRPG System
-
-// Working on creating a custom System based loosely on DnD 3.5e, Pathfinder (1 & 2), and GURPS. Alongside this, working on creating an interactive site/tool to more easily visualize the rules and character growth options.
-// Cyberdeck
-
-// Mostly just a daydream, but goals are focused around making a small keyboard + screen combination with added features like small oled displays showing custom information.
-// Car Modifications/Upgrades
-// Plenty of small ideas here, but namely playing around with concepts like a DIY dashcam or Media Control Screen.

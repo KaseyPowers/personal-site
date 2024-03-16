@@ -3,16 +3,57 @@ import clsx from "clsx";
  * NOTES:
  * currently trying to focus on "slate" for the white-black scale colors
  */
-const theme_classes = {
-  background: {
-    main: "bg-white dark:bg-slate-900",
-    secondary: "bg-slate-200 dark:bg-slate-800",
-    highlight: "bg-indigo-600 dark:bg-indigo-400",
-  },
-  border: {
-    base: "border-slate-300 dark:border-slate-700",
-    baseHover: "dark:hover:border-slate-600",
-    highlight: "border-indigo-600 dark:border-indigo-400",
+const background = {
+  main: "bg-white dark:bg-slate-900",
+  secondary: "bg-slate-200 dark:bg-slate-800",
+  highlight: "bg-indigo-600 dark:bg-indigo-400",
+} as const;
+
+const border = {
+  base: "border-slate-300 dark:border-slate-700",
+  baseHover: "dark:hover:border-slate-600",
+  highlight: "border-indigo-600 dark:border-indigo-400",
+} as const;
+
+const typographyColors = {
+  header: "text-slate-900 dark:text-white",
+  base: "text-slate-500 dark:text-slate-400",
+  sub: "text-slate-400 dark:text-slate-500",
+  secondary: "text-slate-800 dark:text-slate-300",
+  highlight: "text-indigo-600 dark:text-indigo-400",
+  highlight_reverse: "text-indigo-200 dark:text-indigo-800",
+} as const;
+
+const typographySizes = {
+  default: "text-base font-normal",
+  medium: "text-lg font-medium",
+  hSecondary: "font-semibold",
+  h1: "text-5xl font-extrabold",
+  h2: "text-4xl font-bold",
+  h3: "text-3xl font-bold",
+  h4: "text-2xl font-bold",
+  h5: "text-xl font-bold",
+} as const;
+
+const baseStyles = {
+  background,
+  border,
+  card: {
+    container: clsx(
+      background.secondary,
+      border.base,
+      typographyColors.secondary,
+      "rounded-lg border-2",
+    ),
+    innerContainer: "p-4 leading-tight",
+    title: clsx(
+      typographyColors.header,
+      // I know leading-none only will apply to the text-xl and be overridden 2xl on xs+ screens
+      "flex items-center justify-between leading-none",
+      typographySizes.h5,
+      "sm:2xl",
+    ),
+    subTitle: clsx(typographyColors.highlight, typographySizes.h5),
   },
   buttonGroup: {
     container: "inline-flex rounded-full shadow-lg",
@@ -38,15 +79,11 @@ const theme_classes = {
     children: "rounded-none first:rounded-t-lg last:rounded-b-lg",
   },
   typography: {
-    header: "text-slate-900 dark:text-white",
-    base: "text-slate-500 dark:text-slate-400",
-    sub: "text-slate-400 dark:text-slate-500",
-    secondary: "text-slate-800 dark:text-slate-300",
-    highlight: "text-indigo-600 dark:text-indigo-400",
-    highlight_reverse: "text-indigo-200 dark:text-indigo-800",
+    colors: typographyColors,
+    sizes: typographySizes,
   },
   links:
     "no-underline hover:underline text-cyan-600 hover:text-cyan-500 dark:text-cyan-400 hover:dark:text-cyan-200",
 };
 
-export default theme_classes;
+export default baseStyles;

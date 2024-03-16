@@ -1,20 +1,9 @@
 import clsx from "clsx";
 import baseStyles from "./base.styles";
 
-const typeStyle = {
-  default: "text-base font-normal",
-  medium: "text-lg font-medium",
-  h1: "text-5xl font-extrabold",
-  h2: "text-4xl font-bold",
-  h3: "text-3xl font-bold",
-  h4: "text-2xl font-bold",
-  h5: "text-xl font-bold",
-  hSecondary: "font-semibold",
-} as const;
+type TypeOptions = keyof typeof baseStyles.typography.sizes;
 
-type TypeOptions = keyof typeof typeStyle;
-
-type ColorOptions = keyof typeof baseStyles.typography;
+type ColorOptions = keyof typeof baseStyles.typography.colors;
 
 function Typography({
   as: Component = "span",
@@ -41,8 +30,8 @@ function Typography({
   return (
     <Component
       className={clsx(
-        typeStyle[type],
-        baseStyles.typography[color],
+        baseStyles.typography.sizes[type],
+        baseStyles.typography.colors[color],
         marginClass,
         className,
       )}

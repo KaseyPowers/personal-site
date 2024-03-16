@@ -9,7 +9,7 @@ const Badge = ({ children }: { children: React.ReactNode }) => (
   <span
     className={clsx(
       baseStyles.background.secondary,
-      baseStyles.typography.secondary,
+      baseStyles.typography.colors.secondary,
       "mx-1 my-0.5 rounded px-2.5 py-0.5 text-xs font-medium sm:text-base",
     )}
   >

@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { CalendarIcon } from "@heroicons/react/24/solid";
 
 import baseStyles from "./base.styles";
-import Typography from "./typography";
+import Card from "./card";
 
 export interface TimelineItem {
   id: string;
@@ -31,14 +31,7 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
             "group mb-8 max-w-full last:mb-0",
           )}
         >
-          <div
-            className={clsx(
-              "rounded-lg border-2 px-4 py-4",
-              baseStyles.background.secondary,
-              baseStyles.border.base,
-              baseStyles.typography.secondary,
-            )}
-          >
+          <Card content>
             <div className="relative mb-0.5 leading-none">
               <span
                 className={clsx(
@@ -49,26 +42,19 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
                   "flex items-center justify-center rounded-full",
                   // "ring-8 ring-white dark:ring-gray-900",
                   baseStyles.background.highlight,
-                  baseStyles.typography.highlight_reverse,
+                  baseStyles.typography.colors.highlight_reverse,
                   "before:absolute before:top-1/2 before:h-0.5 before:w-4 before:bg-slate-300 before:dark:bg-slate-700",
                   "before:left-full lg:group-odd:before:left-auto lg:group-odd:before:right-full",
                 )}
               >
                 <CalendarIcon className="w-2/3" />
               </span>
-              <h5
-                className={clsx(
-                  "flex items-center justify-between font-bold leading-none",
-                  "text-xl xs:text-2xl",
-                  baseStyles.typography.header,
-                )}
-              >
+              <Card.Title>
                 <span>{title}</span>
-
                 <time
                   className={clsx(
-                    "mb-1 block text-sm font-light leading-none",
-                    baseStyles.typography.sub,
+                    "ml-0.5 block text-sm font-light leading-none xs:ml-1",
+                    baseStyles.typography.colors.sub,
                   )}
                 >
                   {Array.isArray(time) ? (
@@ -81,62 +67,19 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
                     time
                   )}
                 </time>
-              </h5>
+              </Card.Title>
             </div>
 
-            {contentTitle && (
-              <Typography as="h6" type="h5" color="highlight">
-                {contentTitle}
-              </Typography>
-            )}
+            {contentTitle && <Card.SubTitle>{contentTitle}</Card.SubTitle>}
 
             {typeof content === "string" ? (
-              <p className="leading-tight">{content}</p>
+              <p>{content}</p>
             ) : (
-              <div className="leading-tight">{content}</div>
+              <div>{content}</div>
             )}
-          </div>
+          </Card>
         </li>
       ))}
     </ol>
   );
 }
-
-const TimelineOld = ({ items }: { items: TimelineItem[] }) => (
-  <ol className={clsx("relative border-s", baseStyles.border.base)}>
-    {items.map(({ id, title, time, content, contentTitle }) => (
-      <li key={id} className="mb-5 ms-6">
-        <span
-          className={clsx(
-            "absolute  -start-3 flex h-6 w-6 items-center justify-center rounded-full ring-8 ring-white dark:ring-gray-900",
-            baseStyles.background.highlight,
-            baseStyles.typography.highlight_reverse,
-          )}
-        >
-          <CalendarIcon className="w-2/3" />
-        </span>
-        <Typography as="h4" type="h4" className="mb-0.5 leading-none">
-          <span>{title}</span>
-          {contentTitle && (
-            <Typography as="small" type="hSecondary" className="ms-12">
-              {contentTitle}
-            </Typography>
-          )}
-        </Typography>
-        <time
-          className={clsx(
-            "mb-1 block text-sm font-light leading-none",
-            baseStyles.typography.sub,
-          )}
-        >
-          {time}
-        </time>
-        {typeof content === "string" ? (
-          <p className="leading-tight">{content}</p>
-        ) : (
-          <div className="leading-tight">{content}</div>
-        )}
-      </li>
-    ))}
-  </ol>
-);

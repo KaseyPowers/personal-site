@@ -37,7 +37,7 @@ export default function RootLayout({
           inter.className,
           "h-dvh w-screen antialiased",
           baseStyles.background.main,
-          baseStyles.typography.base,
+          baseStyles.typography.colors.base,
           "flex flex-row items-stretch",
         )}
       >
