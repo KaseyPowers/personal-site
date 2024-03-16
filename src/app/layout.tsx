@@ -44,7 +44,7 @@ export default function RootLayout({
         <Providers>
           <Sidebar />
           <div className="flex-auto overflow-y-auto">
-            <main className="container mx-auto px-4 pt-8 lg:px-8">
+            <main className="container mx-auto pt-8 sm:px-4 lg:px-8">
               {children}
             </main>
           </div>

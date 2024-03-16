@@ -17,7 +17,7 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
   return (
     <ol
       className={clsx(
-        "grid-cols-timeline lg:grid-cols-timeline-alt grid w-full auto-cols-max gap-x-8 py-4",
+        "grid-cols-timeline lg:grid-cols-timeline-alt grid w-full auto-cols-max gap-x-8 py-4 pl-4 pr-2",
         "before:row-[1/_span_100] before:bg-slate-300 before:dark:bg-slate-700",
         "before:col-start-1 lg:before:col-start-2",
       )}
