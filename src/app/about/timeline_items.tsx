@@ -24,7 +24,7 @@ const timelineData: TimelineItem[] = [
   {
     id: "availity",
     title: "Availity",
-    time: "2015 - Mar 2019",
+    time: ["2015", "Mar 2019"],
     contentTitle: "Intern -> Developer 1A",
     content: (
       <ul className="list-inside list-disc">
@@ -45,9 +45,9 @@ const timelineData: TimelineItem[] = [
           like React (
           <a
             href="https://github.com/Availity/sdk-js"
-            className={baseStyles.links}
+            className={`${baseStyles.links} break-all`}
           >
-            github.com/Availity/sdk-js
+            Availity/sdk-js
           </a>
           ). While doing so, cleaned up code with new ES6 syntax and updated
           tests using Jest.
@@ -67,7 +67,7 @@ const timelineData: TimelineItem[] = [
     id: "primeTrust",
     title: "Prime Trust",
     contentTitle: "Senior Software Developer",
-    time: "2015 - Mar 2019",
+    time: ["2015", "Mar 2019"],
     content: (
       <ul className="list-inside list-disc">
         <li>

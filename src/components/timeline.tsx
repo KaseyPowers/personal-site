@@ -8,7 +8,7 @@ import Typography from "./typography";
 export interface TimelineItem {
   id: string;
   title: string;
-  time: string;
+  time: string | [string, string];
   contentTitle?: string;
   content: React.ReactNode;
 }
@@ -17,9 +17,10 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
   return (
     <ol
       className={clsx(
-        "grid-cols-timeline lg:grid-cols-timeline-alt grid w-full auto-cols-max gap-x-8 py-4 pl-4 pr-2",
+        "grid w-full auto-cols-max grid-cols-timeline gap-x-8 py-4 pl-4 pr-2 lg:grid-cols-timeline-alt",
         "before:row-[1/_span_100] before:bg-slate-300 before:dark:bg-slate-700",
         "before:col-start-1 lg:before:col-start-2",
+        "overflow-x-clip",
       )}
     >
       {items.map(({ id, title, contentTitle, time, content }) => (
@@ -27,7 +28,7 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
           key={id}
           className={clsx(
             "col-start-2 row-span-2 lg:odd:col-start-1 lg:even:col-start-3 lg:[&:nth-child(2)]:row-start-2",
-            "group mb-8 last:mb-0",
+            "group mb-8 max-w-full last:mb-0",
           )}
         >
           <div
@@ -55,10 +56,12 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
               >
                 <CalendarIcon className="w-2/3" />
               </span>
-              <Typography
-                as="h5"
-                type="h4"
-                className="flex items-center justify-between leading-none"
+              <h5
+                className={clsx(
+                  "flex items-center justify-between font-bold leading-none",
+                  "text-xl xs:text-2xl",
+                  baseStyles.typography.header,
+                )}
               >
                 <span>{title}</span>
 
@@ -68,9 +71,17 @@ export default function Timeline({ items }: { items: TimelineItem[] }) {
                     baseStyles.typography.sub,
                   )}
                 >
-                  {time}
+                  {Array.isArray(time) ? (
+                    <>
+                      <span className="whitespace-nowrap">{time[0]}</span>
+                      <span className="mx-1">-</span>
+                      <span className="whitespace-nowrap">{time[1]}</span>
+                    </>
+                  ) : (
+                    time
+                  )}
                 </time>
-              </Typography>
+              </h5>
             </div>
 
             {contentTitle && (

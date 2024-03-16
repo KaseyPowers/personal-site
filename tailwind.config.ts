@@ -18,7 +18,7 @@ const config: Config = {
         "13": "3.25rem",
       },
       gridTemplateColumns: {
-        timeline: "0.25rem 1fr",
+        timeline: "0.25rem minmax(0, 1fr)",
         "timeline-alt": "1fr 0.25rem 1fr",
       },
     },
