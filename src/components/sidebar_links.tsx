@@ -26,7 +26,9 @@ export default function SidebarLinks({
             <Link
               className={clsx(
                 baseStyles.button.base,
-                active && "bg-slate-100 dark:bg-slate-700",
+                baseStyles.button.bgDefault,
+                active && baseStyles.button.bgActive,
+                active && baseStyles.button.textActive,
                 "flex flex-row items-center justify-center",
                 "group-first:rounded-t-lg group-last:rounded-b-lg",
                 icon && "sm:justify-between",

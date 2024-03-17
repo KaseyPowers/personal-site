@@ -4,6 +4,7 @@ import baseStyles from "@/components/base.styles";
 import Timeline, { TimelineItem } from "@/components/timeline";
 
 import timelineData from "./timeline_items";
+import SectionTitle from "@/components/section_title";
 
 const Badge = ({ children }: { children: React.ReactNode }) => (
   <span
@@ -58,17 +59,7 @@ const goalsText = [
 
 const Goals = () => (
   <>
-    <div className="mx-auto w-fit text-center">
-      <Typography as="h4" type="h3">
-        Goals
-      </Typography>
-      <div
-        className={clsx(
-          baseStyles.background.highlight,
-          "mx-auto my-2 h-1.5 w-1/3 rounded-full",
-        )}
-      />
-    </div>
+    <SectionTitle title="Goals" />
 
     <Typography as="p">
       Professionally, the core of my goals for the future are to keep growing as
@@ -96,22 +87,11 @@ const Goals = () => (
 export default function AboutMe() {
   return (
     <div className="space-y-4 text-lg">
-      <div className="text-center">
-        <div className="mx-auto w-fit">
-          <Typography as="h3" type="h2">
-            About Me
-          </Typography>
-          <div
-            className={clsx(
-              baseStyles.background.highlight,
-              "mx-auto my-2 h-1.5 w-1/3 rounded-full",
-            )}
-          />
-        </div>
-        <div className="mx-auto w-3/4 max-w-screen-sm text-base sm:text-xl">
-          My technical skills, where I have been, and my goals
-        </div>
-      </div>
+      <SectionTitle
+        pageHeader
+        title="About Me"
+        subText="My technical skills, where I have been, and my goals"
+      />
       <div className="flex flex-col-reverse space-y-4 space-y-reverse sm:flex-row sm:space-x-4 ">
         <div className="flex-1 space-y-4">
           <Typography as="h4" type="h3">
@@ -138,17 +118,7 @@ export default function AboutMe() {
         </div>
       </div>
 
-      <div className="mx-auto w-fit text-center">
-        <Typography as="h4" type="h3">
-          Timeline
-        </Typography>
-        <div
-          className={clsx(
-            baseStyles.background.highlight,
-            "mx-auto my-2 h-1.5 w-1/3 rounded-full",
-          )}
-        />
-      </div>
+      <SectionTitle title="Timeline" />
       <Timeline items={timelineData} />
 
       <Goals />

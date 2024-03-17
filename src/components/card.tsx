@@ -21,19 +21,35 @@ const Card = ({
   </div>
 );
 
-const CardContent = ({ children }: { children: React.ReactNode }) => (
-  <div className={baseStyles.card.innerContainer}>{children}</div>
+const CardContent = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <div className={clsx(className, baseStyles.card.innerContainer)}>
+    {children}
+  </div>
 );
 Card.Content = CardContent;
 
-const CardTitle = ({ children }: { children: React.ReactNode }) => (
-  <h5 className={baseStyles.card.title}>{children}</h5>
-);
+const CardTitle = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <h5 className={clsx(className, baseStyles.card.title)}>{children}</h5>;
 Card.Title = CardTitle;
 
-const CardSubTitle = ({ children }: { children: React.ReactNode }) => (
-  <h6 className={baseStyles.card.subTitle}>{children}</h6>
-);
+const CardSubTitle = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <h6 className={clsx(className, baseStyles.card.subTitle)}>{children}</h6>;
 Card.SubTitle = CardSubTitle;
 
 export default Card;

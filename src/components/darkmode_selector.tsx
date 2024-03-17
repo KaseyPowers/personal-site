@@ -22,8 +22,9 @@ export default function DarkmodeToggle({ className }: { className?: string }) {
         theme_classes.button.base,
         theme_classes.button.bordered,
         theme_classes.button.not_group,
-        theme_classes.button.default,
+        theme_classes.button.textDefault,
         theme_classes.button.not_hidden,
+        theme_classes.button.bgDefault,
         "shadow-lg",
         className,
       )}
