@@ -6,10 +6,10 @@ import clsx from "clsx";
 const email = "KaseyEPowers@gmail.com";
 
 const answerTexts = [
-  "Software Developer with a focus on UI/UX Development.",
-  "Quick learner, picking up new technologies, languages, and frameworks as needed.",
-  "Lover of complex challenges with creative solutions.",
-  "Approachable resource of knowledge with experience as a mentor",
+  "Software Developer with a focus on UI/UX Development",
+  "Quick learner: picking up new technologies, languages, and frameworks as needed",
+  "Lover of complex challenges with creative solutions",
+  "Approachable mentor and resource of knowledge",
   "Former almost semi-professional Rocket League Player",
 ];
 

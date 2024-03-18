@@ -98,6 +98,9 @@ const Goals = () => (
   </>
 );
 
+const overviewText =
+  "I am a Frontend Focused Software Developer with experience creating and maintaining a variety of websites, SPAs, embedded widgets, and shared utility libraries. I enjoy tackling new challenges, learning new technologies and skills in the process. Along with gathering knowledge I enthusiastically share it with others, mentoring when I can and generally being approachable to help in any way.";
+
 export default function AboutMe() {
   return (
     <div className="space-y-4 text-lg">
@@ -111,14 +114,7 @@ export default function AboutMe() {
           <Typography as="h4" type="h3">
             Overview
           </Typography>
-          <Typography as="p">
-            I{"'"}m a Frontend Focused Software Developer. Creating and
-            maintaing Websites, SPAs, embedded widgets, and shared utility
-            libraries. I enjoy tackling new challenges, learning new
-            technologies and skills in the process. Along with learning I
-            enthusiasticly share my knowledge with others. Mentoring when I can,
-            and generally being approachable to help in any way.
-          </Typography>
+          <Typography as="p">{overviewText}</Typography>
         </div>
         <div className="flex-1 space-y-4">
           <Typography as="h4" type="h3">
