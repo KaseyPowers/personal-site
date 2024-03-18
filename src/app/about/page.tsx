@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 import Typography from "@/components/typography";
 import baseStyles from "@/components/base.styles";
 import Timeline, { TimelineItem } from "@/components/timeline";
@@ -36,6 +37,18 @@ const goalsText = [
     title: "Become proficient with the Backend to become a Fullstack Developer",
     items: [
       "I have experimented with some basic servers for mock data or basic personal projects.",
+      <>
+        currently attempting websocket communication in Next.JS (with some help
+        from{" "}
+        <Link
+          className={baseStyles.links}
+          href="https://create.t3.gg/"
+          target="_blank"
+        >
+          T3
+        </Link>
+        ) for the web-game project.
+      </>,
       "From databases to security and many other aspects of BE development, all I know is there is a lot I don't know.",
     ],
   },
@@ -74,8 +87,9 @@ const Goals = () => (
             {goal.title}
           </Typography>
           <ul className="list-inside list-disc">
-            {goal.items.map((text) => (
-              <li key={text}>{text}</li>
+            {/* Index for key generally avoided, but for static content like this It feels okay  */}
+            {goal.items.map((text, index) => (
+              <li key={index}>{text}</li>
             ))}
           </ul>
         </li>
@@ -100,9 +114,9 @@ export default function AboutMe() {
           <Typography as="p">
             I{"'"}m a Frontend Focused Software Developer. Creating and
             maintaing Websites, SPAs, embedded widgets, and shared utility
-            libraries. Love tackling new challenges and learning new
+            libraries. I enjoy tackling new challenges, learning new
             technologies and skills in the process. Along with learning I
-            enthusiasticly share my knowledge with others, mentoring when I can,
+            enthusiasticly share my knowledge with others. Mentoring when I can,
             and generally being approachable to help in any way.
           </Typography>
         </div>

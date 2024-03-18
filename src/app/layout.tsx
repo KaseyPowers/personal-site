@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Kasey Powers",
-  description: "My Personal Portfolio Site",
+  description: "My (Mostly) Professional Portfolio",
 };
 
 const navigation: NavItemDef[] = [
