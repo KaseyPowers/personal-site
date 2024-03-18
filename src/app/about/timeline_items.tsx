@@ -67,7 +67,7 @@ const timelineData: TimelineItem[] = [
     id: "primeTrust",
     title: "Prime Trust",
     contentTitle: "Senior Software Developer",
-    time: ["2015", "Mar 2019"],
+    time: ["Apr 2019", "Nov 2023"],
     content: (
       <ul className="list-inside list-disc">
         <li>
