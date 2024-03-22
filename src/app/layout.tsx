@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import clsx from "clsx";
 
 import "./globals.css";
-
+import { Analytics } from "@vercel/analytics/react";
 import type { NavItemDef } from "@/shared/nav_utils";
 
 import baseStyles from "@/components/base.styles";
@@ -49,6 +49,7 @@ export default function RootLayout({
             </main>
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
