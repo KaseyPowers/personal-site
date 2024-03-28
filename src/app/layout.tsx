@@ -6,11 +6,10 @@ import clsx from "clsx";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import type { NavItemDef } from "@/shared/nav_utils";
-
 import baseStyles from "@/components/base.styles";
-import Providers from "./root_providers";
-
 import Sidebar from "@/components/sidebar";
+
+import Providers from "./root_providers";
 
 const inter = Inter({ subsets: ["latin"] });
 

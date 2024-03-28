@@ -2,9 +2,6 @@ import baseStyles from "@/components/base.styles";
 import ProfilePhoto from "@/components/profile_photo";
 import clsx from "clsx";
 
-// raw email with capitalization for displaying elsewhere
-const email = "KaseyEPowers@gmail.com";
-
 const answerTexts = [
   "Software Developer with a focus on UI/UX Development",
   "Quick learner: picking up new technologies, languages, and frameworks as needed",
