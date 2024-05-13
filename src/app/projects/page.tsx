@@ -50,6 +50,16 @@ const allProjects: ProjectDef[] = [
       label: "Portfolio Github Repository",
     },
   },
+  {
+    id: "ts-string-fancy",
+    title: "TS-string-fancy",
+    description:
+      "A collection of typescript utility types for strings and string-literals",
+    github: {
+      href: "https://github.com/KaseyPowers/ts-string-fancy",
+      label: "TS-string-fancy Github Repository",
+    },
+  },
 ];
 
 const ProjectCard = ({ project }: { project: ProjectDef }) => {
@@ -78,7 +88,9 @@ const ProjectCard = ({ project }: { project: ProjectDef }) => {
               <div />
             )}
             {github && (
-              <Tooltip text={github.tooltip || "View On Github"}>
+              <Tooltip
+                text={github.tooltip || github.label || "View On Github"}
+              >
                 <Link
                   target="_blank"
                   href={github.href}
