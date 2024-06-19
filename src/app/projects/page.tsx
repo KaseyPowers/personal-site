@@ -27,6 +27,20 @@ interface ProjectDef {
 
 const allProjects: ProjectDef[] = [
   {
+    id: "dice-visualizer",
+    title: "Dice Visualizer",
+    description:
+      "early demo of a dice rolling visualizer. including string parser. all inspired by https://anydice.com/",
+    link: {
+      href: "https://dice-visualizer.vercel.app/",
+      label: "dice-visualizer demo",
+    },
+    github: {
+      href: "https://github.com/KaseyPowers/dice-visualizer",
+      label: "Dice-Visualizer Github Repository",
+    },
+  },
+  {
     id: "simple-game",
     title: "Simple Web Game",
     description:
